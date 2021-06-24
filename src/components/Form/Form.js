@@ -1,16 +1,19 @@
+import React from 'react'
+
 const Form = ({currentStep, setError, inputData, setInputData}) => (
-  <form aria-label="Create user account">
+  <form aria-label="Create user account" data-testid="form">
 
     <fieldset className={`form-step form-step-personal ${currentStep === 1 ? "form-step--isActive" : ""}`}>
       <legend>Personal information</legend>
       <div className="form-field-wrapper">
         <label htmlFor="firstName">First name:<span className="input-required">*</span></label>
         <input
+          data-testid="form-input-name"
           type="text"
           id="firstName"
           name="firstName"
           className="input-name"
-          value={inputData.name}
+          value={inputData ? inputData.name : ''}
           onChange={(e) => {
             setInputData({
               ...inputData,
@@ -23,11 +26,12 @@ const Form = ({currentStep, setError, inputData, setInputData}) => (
       <div className="form-field-wrapper">
         <label htmlFor="lastName">Last name:<span className="input-required">*</span></label>
         <input
+          data-testid="form-input-lastName"
           type="text"
           id="lastName"
           name="lastName"
           className="input-name"
-          value={inputData.lastName}
+          value={inputData ? inputData.lastName : ''}
           onChange={(e) => {
             setInputData({
               ...inputData,
@@ -40,11 +44,12 @@ const Form = ({currentStep, setError, inputData, setInputData}) => (
       <div className="form-field-wrapper">
         <label htmlFor="username">Github username:<span className="input-required">*</span></label>
         <input
+          data-testid="form-input-username"
           type="text"
           id="username"
           name="username"
           className="input-username"
-          value={inputData.username}
+          value={inputData ? inputData.username : ''}
           onChange={(e) => {
             setInputData({
               ...inputData,
@@ -62,11 +67,12 @@ const Form = ({currentStep, setError, inputData, setInputData}) => (
       <div className="form-field-wrapper">
         <label htmlFor="email">Email:<span className="input-required">*</span></label>
         <input
+          data-testid="form-input-email"
           id="email"
           type="email"
           name="email"
           className="input-email"
-          value={inputData.email}
+          value={inputData ? inputData.email : ''}
           onChange={(e) => {
             setInputData({
               ...inputData,
@@ -79,11 +85,12 @@ const Form = ({currentStep, setError, inputData, setInputData}) => (
       <div className="form-field-wrapper checkbox">
         <label htmlFor="checkbox">Agree to terms<span className="input-required">*</span></label>
         <input
+          data-testid="form-input-checkbox"
           type="checkbox"
           name="checkbox"
           id="checkbox"
           className="input-checkbox"
-          checked={inputData.termsAccepted}
+          checked={inputData ? inputData.termsAccepted : false}
           onChange={(e) => {
             setInputData({
               ...inputData,

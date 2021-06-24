@@ -65,12 +65,12 @@
   background-color: #000dff;
   color: #fff; }
 
-.form-button-wrapper {
+.form-button-controller {
   display: flex;
   justify-content: space-between;
   width: 100%; }
 
-.form-button-wrapper--hasSingleButton {
+.form-button-controller--hasSingleButton {
   justify-content: flex-end; }
 
 .form-error {
@@ -131,7 +131,7 @@
 .form-result-username {
   margin: 10px 0; }
 
-.form-result-username, .form-result-location, .form-result-city {
+.form-result-username, .form-result-location, .form-result-company, .form-result-followers {
   text-align: center; }
 
 .form-progress {

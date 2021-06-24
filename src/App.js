@@ -108,13 +108,12 @@ const App = () => {
       <div className="form">
 
         { currentStep === 0 &&
-            <Intro />
+          <Intro />
         }
 
         { (currentStep > 0 && currentStep < 3) &&
           <Form
             currentStep={currentStep}
-            error={error}
             inputData={inputData}
             setError={setError}
             setInputData={setInputData}
@@ -125,19 +124,24 @@ const App = () => {
           <Results responseData={responseData} />
         }
 
-        <div className="form-error">{ error && error }</div>
+        <div
+          className="form-error"
+          data-testid="form-error"
+          >{ error && error }</div>
 
-        <div className={`form-button-wrapper ${ currentStep === 0 && "form-button-wrapper--hasSingleButton"}`}>
+        <div className={`form-button-controller ${ currentStep === 0 && "form-button-controller--hasSingleButton"}`}>
           { (currentStep !== 0 && currentStep !== 3) &&
             <button
               className="form-button-previous"
-              onClick={(e) => handleButtonClick(e)}>Back</button>
+              onClick={(e) => handleButtonClick(e)}
+              data-testid="button-back">Back</button>
           }
 
           { currentStep <= 1 &&
             <button
               className={`form-button-next ${checkForErrors() ? "form-button--isDisabled" : ""}`}
               onClick={(e) => handleButtonClick(e)}
+              data-testid="button-next"
               >{ currentStep === 0 ? "Let's go!" : "Next"}</button>
           }
 
@@ -145,6 +149,7 @@ const App = () => {
             <button
               className={`form-button-submit ${checkForErrors() ? "form-button--isDisabled" : ""}`}
               onClick={(e) => handleSubmit(e)}
+              data-testid="button-submit"
               type="submit">Create</button>
           }
 

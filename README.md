@@ -20,8 +20,7 @@ yarn run start
 ```
 yarn build
 ```
-### Run your unit tests
+### Run tests
 ```
-yarn run test:unit
+yarn run test
 ```
-* there is no much of test I have intended to do some unit test using Vue test utils but time didn't work out
