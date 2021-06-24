@@ -1,0 +1,126 @@
+.form {
+  align-items: center;
+  border-radius: 6px;
+  box-shadow: 3px 3px 6px 6px rgba(0, 0, 0, .04), 7px 10px 25px 0 rgba(0, 0, 0, .2);
+  display: flex;
+  flex-direction: column;
+  height: 465px;
+  justify-content: center;
+  margin: 0 $gutter-mobile;
+  max-width: $content-max-width;
+  padding: 25px;
+  transition: border-color 0.3s;
+  width: 100%;
+
+  @media (min-width: $breakpoint-tablet) {
+    margin: 0 $gutter-tablet;
+    padding: 30px;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    margin: 0 $gutter-desktop;
+  }
+
+  &-title {
+    font-size: $font-size-l;
+    text-align: center;
+  }
+
+  &-subtitle {
+    margin-top: 0;
+  }
+
+  &-step {
+    display: none;
+
+    &--isActive {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-subtitle {
+      font-size: $font-size-s;
+      font-style: italic;
+      margin: 5px 0 0;
+    }
+  }
+
+  &-field-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+
+    label {
+      padding-bottom: 8px;
+    }
+  }
+
+  &-field-wrapper.checkbox {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  form {
+    height: 100%;
+    width: 100%;
+  }
+
+  &-button {
+    &--isDisabled {
+      cursor: auto;
+      opacity: 0.5;
+
+      &:hover {
+        background-color: $color-accent;
+        color: $color-white;
+      }
+    }
+
+    &-wrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      &--hasSingleButton {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  &-error {
+    color: $color-red;
+    height: 24px;
+    margin-bottom: 24px;
+    width: 100%;
+  }
+
+  &-loading-wrapper {
+    align-items: center;
+    display: flex;
+  }
+
+  &-loading {
+    animation: spin 1s ease-in-out infinite;
+    border: 2px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: $color-accent;
+    display: inline-block;
+    height: 18px;
+    margin-right: 10px;
+    width: 18px;
+  }
+}
+
+.input {
+  &-required {
+    color: $color-red;
+    font-weight: 600;
+  }
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}

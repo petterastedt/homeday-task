@@ -1,0 +1,28 @@
+.form {
+  &-progress {
+    margin-top: 24px;
+    position: relative;
+    width: 100%;
+
+    &-bar,
+    &-background {
+      background-color: $color-accent;
+      border-radius: 6px;
+      height: 4px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transition: width 0.5s;
+      width: 0;
+    }
+
+    &-bar {
+      z-index: 2;
+    }
+
+    &-background {
+      background-color: rgba(0,13,255, 0.15);
+      width: 100%;
+    }
+  }
+}

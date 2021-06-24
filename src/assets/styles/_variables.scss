@@ -1,0 +1,27 @@
+$breakpoint-mobile-narrow: 350px;
+$breakpoint-mobile-horizontal: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-tablet-horizontal: 1024px;
+$breakpoint-desktop: 1280px;
+$breakpoint-desktop-wide: 1440px;
+
+$color-background: #f4f4f4;
+$color-accent: #000dff;
+$color-white: #fff;
+$color-black: #000;
+$color-red: #ed3333;
+
+$gutter-mobile: 16px;
+$gutter-tablet: 30px;
+$gutter-desktop: 60px;
+
+$container-max-width: $breakpoint-desktop-wide;
+$content-max-width: 400px;
+
+$component-spacing-mobile: 40px;
+$component-spacing: 50px;
+
+$font-size-s: 14px;
+$font-size-base: 16px;
+$font-size-m: 21px;
+$font-size-l: 30px;
