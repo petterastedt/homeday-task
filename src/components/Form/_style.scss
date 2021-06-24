@@ -65,28 +65,6 @@
     width: 100%;
   }
 
-  &-button {
-    &--isDisabled {
-      cursor: auto;
-      opacity: 0.5;
-
-      &:hover {
-        background-color: $color-accent;
-        color: $color-white;
-      }
-    }
-
-    &-controller {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-
-      &--hasSingleButton {
-        justify-content: flex-end;
-      }
-    }
-  }
-
   &-error {
     color: $color-red;
     height: 24px;

@@ -1,5 +1,5 @@
-## Homeday task
-* Link to live version of the project can be found here:
+## Homeday task :house_with_garden:
+Link to live version of the project can be found here:
 
 * Created with create react app.
 * 4-step form containing intro screen, form and results components.

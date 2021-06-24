@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Intro from './components/Intro/Intro'
 import Form from './components/Form/Form'
 import Results from './components/Results/Results'
+import ButtonController from './components/ButtonController/ButtonController'
 import ProgressBar from './components/ProgressBar/ProgressBar'
 import './styles.css'
 
@@ -44,14 +45,14 @@ const App = () => {
 
     setIsSubmitting(true)
     setError('')
-    const gitHubResponse = await fetchData()
+    const response = await fetchData()
 
-    if (gitHubResponse.message === "Not Found") {
+    if (response.message === "Not Found") {
       setIsSubmitting(false)
       return setError("Username not found, please go back and try again!")
     }
 
-    setResponseData(gitHubResponse)
+    setResponseData(response)
     setCurrentStep(currentStep + 1)
     setIsSubmitting(false)
   }
@@ -86,6 +87,10 @@ const App = () => {
         const elementIdToString = emptyField.id.replace( /([A-Z])/g, " $1" ).toLowerCase()
         return `The ${elementIdToString} field is empty!`
       }
+
+      if (!fields.length) {
+        return true
+      }
     }
 
     if (currentStep === 2) {
@@ -113,8 +118,10 @@ const App = () => {
 
         { (currentStep > 0 && currentStep < 3) &&
           <Form
+            checkForErrors={checkForErrors}
             currentStep={currentStep}
             inputData={inputData}
+            handleSubmit={handleSubmit}
             setError={setError}
             setInputData={setInputData}
           />
@@ -124,39 +131,16 @@ const App = () => {
           <Results responseData={responseData} />
         }
 
-        <div
-          className="form-error"
-          data-testid="form-error"
-          >{ error && error }</div>
-
-        <div className={`form-button-controller ${ currentStep === 0 && "form-button-controller--hasSingleButton"}`}>
-          { (currentStep !== 0 && currentStep !== 3) &&
-            <button
-              className="form-button-previous"
-              onClick={(e) => handleButtonClick(e)}
-              data-testid="button-back">Back</button>
-          }
-
-          { currentStep <= 1 &&
-            <button
-              className={`form-button-next ${checkForErrors() ? "form-button--isDisabled" : ""}`}
-              onClick={(e) => handleButtonClick(e)}
-              data-testid="button-next"
-              >{ currentStep === 0 ? "Let's go!" : "Next"}</button>
-          }
-
-          { (currentStep === 2 && !isSubmitting) &&
-            <button
-              className={`form-button-submit ${checkForErrors() ? "form-button--isDisabled" : ""}`}
-              onClick={(e) => handleSubmit(e)}
-              data-testid="button-submit"
-              type="submit">Create</button>
-          }
-
-          { isSubmitting &&
-            <div className="form-loading-wrapper"><div className="form-loading"></div>Loading..</div>
-          }
+        <div className="form-error">
+          { error && error }
         </div>
+
+        <ButtonController
+          currentStep={currentStep}
+          checkForErrors={checkForErrors}
+          handleButtonClick={handleButtonClick}
+          isSubmitting={isSubmitting}
+        />
 
         <ProgressBar currentStep={currentStep} />
       </div>
