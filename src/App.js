@@ -44,17 +44,15 @@ const App = () => {
     }
 
     setIsSubmitting(true)
-    setError('')
     const response = await fetchData()
+    setIsSubmitting(false)
 
     if (response.message === "Not Found") {
-      setIsSubmitting(false)
       return setError("Username not found, please go back and try again!")
     }
 
     setResponseData(response)
     setCurrentStep(currentStep + 1)
-    setIsSubmitting(false)
   }
 
   // SET BUTTON CLICK STATES AND CHANGE FORM STEP
@@ -83,13 +81,13 @@ const App = () => {
       const fields = document.querySelectorAll('.form-step-personal input')
       const emptyField = [...fields].find(field => !field.value)
 
+      if (!fields.length) {
+        return true
+      }
+
       if (emptyField) {
         const elementIdToString = emptyField.id.replace( /([A-Z])/g, " $1" ).toLowerCase()
         return `The ${elementIdToString} field is empty!`
-      }
-
-      if (!fields.length) {
-        return true
       }
     }
 
@@ -120,6 +118,7 @@ const App = () => {
           <Form
             checkForErrors={checkForErrors}
             currentStep={currentStep}
+            error={error}
             inputData={inputData}
             handleSubmit={handleSubmit}
             setError={setError}
@@ -130,10 +129,6 @@ const App = () => {
         { currentStep === 3 &&
           <Results responseData={responseData} />
         }
-
-        <div className="form-error">
-          { error && error }
-        </div>
 
         <ButtonController
           currentStep={currentStep}

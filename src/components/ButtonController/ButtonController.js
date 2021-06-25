@@ -5,7 +5,6 @@ const ButtonController = ({checkForErrors, currentStep, handleButtonClick, isSub
     {(currentStep !== 0 && currentStep !== 3) &&
       <button
         className="form-button-previous"
-        data-testid="button-back"
         onClick={(e) => handleButtonClick(e)}
       >Back</button>
     }
@@ -13,7 +12,6 @@ const ButtonController = ({checkForErrors, currentStep, handleButtonClick, isSub
     {currentStep <= 1 &&
       <button
         className={`form-button-next ${checkForErrors() && "form-button--isDisabled"}`}
-        data-testid="button-next"
         onClick={(e) => handleButtonClick(e)}
       >{currentStep === 0 ? "Let's go!" : "Next"}</button>
     }
@@ -21,7 +19,6 @@ const ButtonController = ({checkForErrors, currentStep, handleButtonClick, isSub
     {(currentStep === 2 && !isSubmitting) &&
       <button
         className={`form-button-submit ${checkForErrors() && "form-button--isDisabled"}`}
-        data-testid="button-submit"
         form="signup-form"
         type="submit"
       >Create</button>

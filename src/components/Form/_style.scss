@@ -21,15 +21,6 @@
     margin: 0 $gutter-desktop;
   }
 
-  &-title {
-    font-size: $font-size-l;
-    text-align: center;
-  }
-
-  &-subtitle {
-    margin-top: 0;
-  }
-
   &-step {
     display: none;
 
@@ -67,8 +58,8 @@
 
   &-error {
     color: $color-red;
-    height: 24px;
-    margin-bottom: 24px;
+    height: 22px;
+    margin-top: 30px;
     width: 100%;
   }
 

@@ -22,13 +22,6 @@
   .form {
     margin: 0 60px; } }
 
-.form-title {
-  font-size: 30px;
-  text-align: center; }
-
-.form-subtitle {
-  margin-top: 0; }
-
 .form-step {
   display: none; }
 
@@ -59,8 +52,8 @@
 
 .form-error {
   color: #ed3333;
-  height: 24px;
-  margin-bottom: 24px;
+  height: 22px;
+  margin-top: 30px;
   width: 100%; }
 
 .form-loading-wrapper {
@@ -95,6 +88,15 @@
   flex-direction: column;
   height: 100%;
   justify-content: center; }
+
+.form-title {
+  font-size: 30px;
+  text-align: center; }
+
+.form-subtitle {
+  margin-top: 0;
+  max-width: 350px;
+  text-align: center; }
 
 .form-result {
   align-items: center;

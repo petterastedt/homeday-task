@@ -1,13 +1,12 @@
 import React from 'react'
 
-const Form = ({currentStep, setError, inputData, setInputData, handleSubmit}) => (
+const Form = ({currentStep, error, setError, inputData, setInputData, handleSubmit}) => (
   <form
     aria-label="Create user account"
     data-testid="form"
     id="signup-form"
     onSubmit={(e) => handleSubmit(e)}
-    >
-
+  >
     <fieldset className={`form-step form-step-personal ${currentStep === 1 ? "form-step--isActive" : ""}`}>
       <legend>Personal information</legend>
       <div className="form-field-wrapper">
@@ -107,6 +106,10 @@ const Form = ({currentStep, setError, inputData, setInputData, handleSubmit}) =>
       </div>
       <p className="form-step-subtitle">All fields marked with <span className="input-required">*</span> are required!</p>
     </fieldset>
+
+    <div className="form-error">
+      { error && error }
+    </div>
   </form>
 )
 
