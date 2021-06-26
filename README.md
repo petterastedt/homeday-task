@@ -1,5 +1,5 @@
 ## Homeday task :house_with_garden:
-See live preview here: https://petterastedt.github.io/homeday-assignment
+See live preview here: https://pedantic-engelbart-5155cd.netlify.app/
 
 * Created with create react app.
 * 4-step form containing intro screen, form and results components.
