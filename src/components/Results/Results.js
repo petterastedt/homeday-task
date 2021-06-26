@@ -9,6 +9,7 @@ const Results = ({responseData}) => (
       data-testid="result-avatar"
       src={ responseData.avatar_url }
       className="form-result-avatar"
+      loading="lazy"
       alt="Github avatar"
       height="150"
       width="150" />
